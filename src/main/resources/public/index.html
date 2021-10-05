@@ -1,10 +1,28 @@
 <html>
 <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="css/main.css"/>
     <title>Turnstile State Machine</title>
 </head>
 <body>
-<div x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></div>
-<script src="js/main.js"></script>
+
+<div class="p-6 mx-auto container" x-data="eventData()" x-init="initEvent()">
+    <span class="text-gray-700" x-text="title"></span>
+
+    <div class="mt-2">
+        <template x-for="event in events">
+            <div>
+                <label class="inline-flex items-center">
+                    <input type="radio" class="form-radio" name="radio" x-model="selectedEvent" :value="event"
+                           :checked="event === selectedEvent">
+                    <span class="ml-2" x-text="event"></span>
+                </label>
+            </div>
+        </template>
+        <p>Event: <span x-text="selectedEvent"></span></p>
+    </div>
+</div>
 </body>
+<script src="js/main.js"></script>
 </html>

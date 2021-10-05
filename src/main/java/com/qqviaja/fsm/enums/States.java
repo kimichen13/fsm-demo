@@ -7,6 +7,8 @@ package com.qqviaja.fsm.enums;
  */
 public enum States {
 
-    LOCKED, UNLOCKED
+    RUNNING, HISTORY, END,
+    WASHING, RINSING, DRYING,
+    POWEROFF
 
 }

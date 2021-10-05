@@ -1,5 +1,6 @@
 package com.qqviaja.fsm.controller;
 
+import com.qqviaja.fsm.enums.Events;
 import com.qqviaja.fsm.enums.States;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +18,12 @@ import java.util.stream.Collectors;
 public class FsmController {
 
     @GetMapping("/states")
-    public List<String> index() {
+    public List<String> states() {
         return Arrays.stream(States.values()).map(States::name).collect(Collectors.toList());
+    }
+
+    @GetMapping("/events")
+    public List<String> events() {
+        return Arrays.stream(Events.values()).map(Events::name).collect(Collectors.toList());
     }
 }

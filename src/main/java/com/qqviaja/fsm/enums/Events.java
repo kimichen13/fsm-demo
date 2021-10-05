@@ -6,5 +6,6 @@ package com.qqviaja.fsm.enums;
  * @author Kimi Chen
  */
 public enum Events {
-    COIN, PUSH
+    RINSE, DRY, STOP,
+    RESTOREPOWER, CUTPOWER
 }
