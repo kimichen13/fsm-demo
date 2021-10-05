@@ -10,8 +10,6 @@ const production = environments.production;
 const terser = require('gulp-terser');
 const bro = require('gulp-bro');
 
-
-
 gulp.task('watch', () => {
     browserSync.init({proxy: 'localhost:8081',});
     watch(['src/main/resources/**/*.html'], gulp.series('copy-html-and-reload'));
@@ -30,9 +28,10 @@ gulp.task('copy-css', () =>
         .pipe(gulp.dest('target/classes/'))
 );
 
-gulp.task('copy-js', () => gulp.src(['src/main/resources/**/*.js'])
-    .pipe(bro({transform: ['babelify']}))
+gulp.task('copy-js',
+    () => gulp.src(['src/main/resources/**/*.js'])
     .pipe(babel())
+    .pipe(bro({transform: ['babelify']}))
     .pipe(production(terser()))
     .pipe(gulp.dest('target/classes/')));
 
