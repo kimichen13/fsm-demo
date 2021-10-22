@@ -5,5 +5,25 @@ server:
 spring:
   thymeleaf:
     cache: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    driver-class-name: org.postgresql.Driver
+    username: kimi
+    password: 123456
 
+  statemachine:
+    data:
+      jpa:
+        repositories:
+          enable: true
+      redis:
+        repositories:
+          enable: true
+      mongo:
+        repositories:
+          enable: true
 
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
